@@ -1,0 +1,43 @@
+{
+  "name": "sketch-favicon",
+  "description": "Sketch plugin for favicon generation.",
+  "version": "0.1.0",
+  "license": "(Apache-2.0 OR MIT)",
+  "homepage": "https://github.com/woofwoofinc/sketch-favicon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woofwoofinc/sketch-favicon.git"
+  },
+  "scripts": {
+    "build": "literacy src/js --copy-files --out-dir lib && eslint lib && skpm build",
+    "publish": "skpm publish"
+  },
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "skpm": {
+    "manifest": "lib/manifest.json",
+    "main": "favicon.sketchplugin"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-config-strict": "^14.0.0",
+    "literacy": "^1.0.0",
+    "skpm": "^0.10.5"
+  },
+  "eslintConfig": {
+    "extends": "strict",
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "rules": {
+      "id-blacklist": "off",
+      "indent": "off"
+    }
+  },
+  "keywords": [
+    "sketch",
+    "favicon"
+  ]
+}

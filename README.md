@@ -1,4 +1,4 @@
-# ![Sketch Favicon](https://raw.githubusercontent.com/woofwoofinc/sketch-favicon/master/docs/assets/title.png)
+# ![Sketch Favicon](https://raw.githubusercontent.com/woofwoofinc/sketch-favicon/master/src/assets/title.png)
 
 [![License](https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg)](https://github.com/woofwoofinc/sketch-favicon#license)
 
@@ -9,7 +9,7 @@ Sketch plugin for favicon generation.
 Detailed documentation is provided in the [src] directories and at
 [woofwoofinc.github.io/sketch-favicon].
 
-[docs]: docs
+[src]: src
 [woofwoofinc.github.io/sketch-favicon]: https://woofwoofinc.github.io/sketch-favicon
 
 

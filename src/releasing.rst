@@ -50,7 +50,7 @@ needed.
 ::
 
     shopt -s dotglob
-    cp -r ../sketch-favicon/docs/_build/html/* .
+    cp -r ../sketch-favicon/src/_build/html/* .
 
     shopt -u dotglob
 

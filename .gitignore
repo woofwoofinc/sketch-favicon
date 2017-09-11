@@ -3,4 +3,7 @@
 *.oci
 
 # Build artifacts
-docs/_build
+favicon.sketchplugin
+src/_build
+lib
+node_modules
