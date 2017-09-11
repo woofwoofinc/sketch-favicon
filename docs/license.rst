@@ -1,25 +1,13 @@
-# ![Sketch Favicon](https://raw.githubusercontent.com/woofwoofinc/sketch-favicon/master/src/assets/title.png)
-
-[![License](https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg)](https://github.com/woofwoofinc/sketch-favicon#license)
-
-Sketch plugin for favicon generation.
-
-[reStructuredText]: http://docutils.sourceforge.net/rst.html
-
-Detailed documentation is provided in the [src] directories and at
-[woofwoofinc.github.io/sketch-favicon].
-
-[docs]: docs
-[woofwoofinc.github.io/sketch-favicon]: https://woofwoofinc.github.io/sketch-favicon
-
-
+.. _license:
 
 License
 -------
 This work is dual-licensed under the Apache License, Version 2.0 and under the
 MIT Licence.
 
-You may licence this work under the Apache License, Version 2.0.
+You may license this work under the Apache License, Version 2.0.
+
+::
 
     Copyright 2017 Woof Woof, Inc. contributors
 
@@ -35,7 +23,9 @@ You may licence this work under the Apache License, Version 2.0.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Alternatively, you may licence this work under the MIT Licence at your option.
+Alternatively, you may license this work under the MIT Licence at your option.
+
+::
 
     Copyright (c) 2017 Woof Woof, Inc. contributors
 
@@ -57,23 +47,9 @@ Alternatively, you may licence this work under the MIT Licence at your option.
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 
-The license explainers at [Choose a License] may be helpful. They have
-descriptions for both the [Apache 2.0 Licence] and [MIT Licence] conditions.
+The license explainers at `Choose a License`_ may be helpful. They have
+descriptions for both the `Apache 2.0 Licence`_ and `MIT Licence`_ conditions.
 
-[Choose a License]: http://choosealicense.com
-[Apache 2.0 Licence]: http://choosealicense.com/licenses/apache-2.0/
-[MIT Licence]: http://choosealicense.com/licenses/mit/
-
-
-Contributing
-------------
-Please note that this project is released with a [Contributor Code of Conduct].
-By participating in this project you agree to abide by its terms. Instances of
-abusive, harassing, or otherwise unacceptable behavior may be reported by
-contacting the project team at woofwoofinc@gmail.com.
-
-[Contributor Code of Conduct]: src/conduct.rst
-
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
-dual licensed as above, without any additional terms or conditions.
+.. _Choose a License: http://choosealicense.com
+.. _Apache 2.0 Licence: http://choosealicense.com/licenses/apache-2.0/
+.. _MIT Licence: http://choosealicense.com/licenses/mit/
