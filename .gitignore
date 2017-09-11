@@ -1,0 +1,6 @@
+# Container image files.
+*.aci
+*.oci
+
+# Build artifacts
+docs/_build
