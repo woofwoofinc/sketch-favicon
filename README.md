@@ -6,7 +6,7 @@ Sketch plugin for favicon generation.
 
 [reStructuredText]: http://docutils.sourceforge.net/rst.html
 
-Detailed documentation is provided in the [src] directories and at
+Detailed documentation is provided in the [docs] directories and at
 [woofwoofinc.github.io/sketch-favicon].
 
 [docs]: docs
