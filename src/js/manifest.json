@@ -1,5 +1,5 @@
 {
-  "compatibleVersion": 3,
+  "compatibleVersion": "3.5.0",
   "bundleVersion": 1,
   "name": "Sketch Favicon",
   "description": "Plugin for favicon generation.",
