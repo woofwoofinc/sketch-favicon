@@ -3,6 +3,14 @@
 Sketch plugin for favicon generation.
 
 
+Source Code
+-----------
+.. toctree::
+   :maxdepth: 1
+
+   js/export-favicon.js
+
+
 Development
 -----------
 .. toctree::

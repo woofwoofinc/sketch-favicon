@@ -1,1 +1,1 @@
-../docs/dev.rst
+../src/dev.rst
