@@ -31,9 +31,16 @@
       "es6": true,
       "node": true
     },
+    "globals": {
+      "log": false,
+      "MSExportRequest": false,
+      "NSTemporaryDirectory": false
+    },
     "rules": {
+      "arrow-parens": "off",
       "id-blacklist": "off",
-      "indent": "off"
+      "indent": "off",
+      "padded-blocks": "off"
     }
   },
   "keywords": [
