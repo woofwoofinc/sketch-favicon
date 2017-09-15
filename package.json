@@ -19,6 +19,11 @@
     "manifest": "lib/manifest.json",
     "main": "favicon.sketchplugin"
   },
+  "dependencies": {
+    "arraybuffer-to-buffer": "^0.0.4",
+    "base64-arraybuffer": "^0.1.5",
+    "pngparse-sync": "^1.0.2"
+  },
   "devDependencies": {
     "eslint": "^4.6.0",
     "eslint-config-strict": "^14.0.0",
@@ -34,13 +39,17 @@
     "globals": {
       "log": false,
       "MSExportRequest": false,
+      "NSData": false,
       "NSTemporaryDirectory": false
     },
     "rules": {
       "arrow-parens": "off",
       "id-blacklist": "off",
+      "id-match": "off",
       "indent": "off",
-      "padded-blocks": "off"
+      "no-multiple-empty-lines": "off",
+      "padded-blocks": "off",
+      "prefer-destructuring": "off"
     }
   },
   "keywords": [

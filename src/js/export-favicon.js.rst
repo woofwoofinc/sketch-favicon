@@ -46,7 +46,7 @@ Start by ensuring a single layer has been selected as the favicon export source.
 
 .. code-block:: javascript
 
-    const bitmap = require('./bitmap');
+    const png = require('./png');
 
     export default function (context) {
       const sketch = context.api();
@@ -59,11 +59,14 @@ Start by ensuring a single layer has been selected as the favicon export source.
         sketch.alert('Select a single layer to export as favicon.', 'Error');
       }
 
-Then iterate through the (single element) array generating bitmaps.
+Then iterate through the (single element) array generating PNG data.
 
 .. code-block:: javascript
 
       layers.iterate(layer => {
-        bitmap.asBitmap(context, layer);
+        const path = png.toFile(context, layer);
+        const data = png.fromFile(path);
+
+        log(`Data: ${ data }`);
       });
     }

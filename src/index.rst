@@ -9,6 +9,7 @@ Source Code
    :maxdepth: 1
 
    js/export-favicon.js
+   js/png.js
 
 
 Development
