@@ -27,7 +27,7 @@
   "devDependencies": {
     "eslint": "^4.6.0",
     "eslint-config-strict": "^14.0.0",
-    "literacy": "^1.0.0",
+    "literacy": "^1.1.0",
     "skpm": "^0.10.5"
   },
   "eslintConfig": {
