@@ -8,6 +8,7 @@ Source Code
 .. toctree::
    :maxdepth: 1
 
+   js/manifest.json
    js/export-favicon.js
    js/png.js
 
