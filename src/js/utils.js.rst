@@ -1,10 +1,10 @@
 Utility Functions
------------------
+=================
 General purpose utility functions.
 
 
 Base64 Encoding/Decoding
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 Decode a Base64 encoded string and return a Buffer.
 
 .. code-block:: javascript

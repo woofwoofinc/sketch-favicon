@@ -1,10 +1,10 @@
 ICO Handling
-------------
+============
 Utilities for generating and handling ICO data.
 
 
 Create an ICO from PNG Data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 Follows `Kevin Mårtensson`_'s `to-ico`_. See the `ICO File Format`_
 specification on Wikipedia for reference.
 
