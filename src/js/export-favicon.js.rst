@@ -73,7 +73,7 @@ Prompt the user for the output favicon file location.
         dialog.setIsExtensionHidden(false);
         dialog.setCanSelectHiddenExtension(true);
 
-        if (dialog.runModal() == NSOKButton) {
+        if (dialog.runModal() === NSOKButton) {
 
 If the Save button was selected then iterate through the (single element) array
 generating favicon files.
