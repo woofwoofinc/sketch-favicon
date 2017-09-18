@@ -1,10 +1,10 @@
 PNG Handling
-------------
+============
 Utilities for generating and handling PNG data.
 
 
 Convert a Layer to PNG
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 This works by exporting the layer to a PNG file and then rereading the PNG file
 data. Follows `Aby Nimbalkar`_'s `common.js`_ in Xport_ for the export.
 
