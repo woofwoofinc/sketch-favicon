@@ -22,7 +22,7 @@ Commands provided:
 .. code-block:: json
 
       "commands": [{
-        "name": "Export Layer as Favicon",
+        "name": "Export Selected Layer as Favicon",
         "identifier": "export-favicon",
         "script": "./export-favicon.js",
         "shortcut": "ctrl shift f"
