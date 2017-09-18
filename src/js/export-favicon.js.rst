@@ -47,6 +47,8 @@ Start by ensuring a single layer has been selected as the favicon export source.
 .. code-block:: javascript
 
     const png = require('./png');
+    const ico = require('./ico');
+    const base64EncodeToString = require('./utils').base64EncodeToString;
 
     export default function (context) {
       const sketch = context.api();
@@ -57,16 +59,40 @@ Start by ensuring a single layer has been selected as the favicon export source.
         sketch.alert('Select a layer to export as favicon.', 'Error');
       } else if (layers.length > 1) {
         sketch.alert('Select a single layer to export as favicon.', 'Error');
-      }
+      } else {
 
-Then iterate through the (single element) array generating PNG data.
+Prompt the user for the output favicon file location.
 
 .. code-block:: javascript
 
-      layers.iterate(layer => {
-        const path = png.toFile(context, layer);
-        const data = png.fromFile(path);
+        const dialog = NSSavePanel.savePanel();
+        dialog.setTitle('Export Selected Layer as Favicon');
+        dialog.setNameFieldStringValue('favicon.ico');
+        dialog.setAllowedFileTypes([ 'ico' ]);
+        dialog.setShowsTagField(false);
+        dialog.setIsExtensionHidden(false);
+        dialog.setCanSelectHiddenExtension(true);
 
-        log(`Data: ${ data }`);
-      });
+        if (dialog.runModal() == NSOKButton) {
+
+If the Save button was selected then iterate through the (single element) array
+generating favicon files.
+
+.. code-block:: javascript
+
+          layers.iterate(layer => {
+            const pngData = png.toPng(context, layer);
+            const icoData = ico.fromPng(pngData);
+
+Finally write the data to the output file location.
+
+.. code-block:: javascript
+
+            const encoded = base64EncodeToString(icoData);
+            const data = NSData.alloc().initWithBase64EncodedString_options(encoded, 0);
+
+            data.writeToURL_atomically(dialog.URL(), false);
+          });
+        }
+      }
     }

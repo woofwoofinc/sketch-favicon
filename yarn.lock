@@ -936,6 +936,21 @@ browserslist@^2.1.2:
     caniuse-lite "^1.0.30000718"
     electron-to-chromium "^1.3.18"
 
+buffer-alloc-unsafe@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/buffer-alloc-unsafe/-/buffer-alloc-unsafe-0.1.1.tgz#ffe1f67551dd055737de253337bfe853dfab1a6a"
+
+buffer-alloc@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/buffer-alloc/-/buffer-alloc-1.1.0.tgz#05514d33bf1656d3540c684f65b1202e90eca303"
+  dependencies:
+    buffer-alloc-unsafe "^0.1.0"
+    buffer-fill "^0.1.0"
+
+buffer-fill@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/buffer-fill/-/buffer-fill-0.1.0.tgz#ca9470e8d4d1b977fd7543f4e2ab6a7dc95101a8"
+
 buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
@@ -2686,7 +2701,11 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
-pako@^0.2.1, pako@~0.2.0:
+pako@^1.0.5:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
+
+pako@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
 
@@ -2800,12 +2819,6 @@ plist@2.0.1:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
-
-pngparse-sync@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pngparse-sync/-/pngparse-sync-1.0.2.tgz#0733b4f7611aeef6f3e405040b942faf13aa357e"
-  dependencies:
-    pako "^0.2.1"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -3055,6 +3068,10 @@ require-uncached@^1.0.3:
   dependencies:
     caller-path "^0.1.0"
     resolve-from "^1.0.0"
+
+resize-image-data@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/resize-image-data/-/resize-image-data-0.1.1.tgz#102c5289ff4935880f80d57ae69f5cc2121beec5"
 
 resolve-from@^1.0.0:
   version "1.0.1"
@@ -3575,6 +3592,12 @@ uid-number@^0.0.6:
 universalify@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
+
+upng-js@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/upng-js/-/upng-js-1.0.1.tgz#79a4be4977aa4f59bd8746fa0f2a642000367b3f"
+  dependencies:
+    pako "^1.0.5"
 
 url@^0.11.0:
   version "0.11.0"
