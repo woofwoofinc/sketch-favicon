@@ -5,5 +5,5 @@
 # Build artifacts
 favicon.sketchplugin
 src/_build
-lib
 node_modules
+lib

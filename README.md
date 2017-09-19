@@ -3,9 +3,9 @@
 [![Build Status](https://travis-ci.org/woofwoofinc/sketch-favicon.svg?branch=master)](https://travis-ci.org/woofwoofinc/sketch-favicon)
 [![License](https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg)](https://github.com/woofwoofinc/sketch-favicon#license)
 
-Sketch plugin for favicon generation.
+[Sketch] plugin for favicon generation.
 
-[reStructuredText]: http://docutils.sourceforge.net/rst.html
+[Sketch]: https://www.sketchapp.com
 
 Detailed documentation is provided in the [src] directories and at
 [woofwoofinc.github.io/sketch-favicon].
@@ -55,7 +55,7 @@ every time it is built. The Sketch Plugin Manager has a command for this.
     skpm link favicon.sketchplugin
 
 This doesn't work for container development since the Sketch installation and
-the `skpm` command are not in the same execution contexts. In this case, create
+the skpm command are not in the same execution contexts. In this case, create
 the symlink manually.
 
     ln -s /path/to/favicon.sketchplugin \
@@ -73,7 +73,7 @@ License
 This work is dual-licensed under the Apache License, Version 2.0 and under the
 MIT Licence.
 
-You may licence this work under the Apache License, Version 2.0.
+You may license this work under the Apache License, Version 2.0.
 
     Copyright 2017 Woof Woof, Inc. contributors
 
@@ -89,7 +89,7 @@ You may licence this work under the Apache License, Version 2.0.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-Alternatively, you may licence this work under the MIT Licence at your option.
+Alternatively, you may license this work under the MIT Licence at your option.
 
     Copyright (c) 2017 Woof Woof, Inc. contributors
 
