@@ -1,5 +1,6 @@
 # ![Sketch Favicon](https://raw.githubusercontent.com/woofwoofinc/sketch-favicon/master/src/assets/title.png)
 
+[![Build Status](https://travis-ci.org/woofwoofinc/sketch-favicon.svg?branch=master)](https://travis-ci.org/woofwoofinc/sketch-favicon)
 [![License](https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg)](https://github.com/woofwoofinc/sketch-favicon#license)
 
 Sketch plugin for favicon generation.
