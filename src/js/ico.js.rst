@@ -111,6 +111,12 @@ Windows BITMAPINFOHEADER version. (See `DIB Headers`_ from Wikipedia. Note the
 .. _Windows BMP format: https://en.wikipedia.org/wiki/BMP_file_format
 .. _DIB Headers: https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_.28bitmap_information_header.29
 
+.. NOTE::
+   The header needs a doubled height for Windows BMP format images. See
+   `ICO Icon resource structure information`_.
+
+.. _ICO Icon resource structure information: https://en.wikipedia.org/wiki/ICO_(file_format)#Icon_resource_structure
+
 .. code-block:: javascript
 
     function createBitmap(png) {
