@@ -39,13 +39,13 @@
       "node": true
     },
     "globals": {
-      "log": false,
       "MSExportRequest": false,
       "NSData": false,
       "NSFileManager": false,
       "NSOKButton": false,
       "NSSavePanel": false,
-      "NSTemporaryDirectory": false
+      "NSTemporaryDirectory": false,
+      "NSUUID": false
     },
     "rules": {
       "arrow-parens": "off",
