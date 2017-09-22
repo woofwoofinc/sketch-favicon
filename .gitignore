@@ -7,3 +7,5 @@ favicon.sketchplugin
 src/_build
 node_modules
 lib
+
+yarn-error.log
