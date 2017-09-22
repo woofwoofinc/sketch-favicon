@@ -29,3 +29,23 @@ Encode a Buffer to Base64 string.
 
       return base64Encoder(arrayBuffer);
     }
+
+
+Temporary Files
+---------------
+Use the Objective C binding to get a temporary filename. Since this is created
+in the macOS user temp directory it will be deleted automatically after three
+days if it is not deleted otherwise.
+
+UUID since don't have access to ``mkstemp`` through CocoaScript bridge.
+
+.. code-block:: javascript
+
+    export function getTemporaryPath(prefix, postfix) {
+      const uuid = NSUUID.UUID().UUIDString();
+
+      const filename = [ prefix || 'tmp-', uuid, postfix || '' ].join('');
+      const path = `${ NSTemporaryDirectory() }${ filename }`;
+
+      return path;
+    }

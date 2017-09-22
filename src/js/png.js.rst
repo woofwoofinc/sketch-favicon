@@ -18,6 +18,7 @@ To export the layer to PNG, first create an MSExportRequest.
 
     const base64DecodeToBuffer = require('./utils').base64DecodeToBuffer;
     const UPNG = require('upng-js');
+    const utils = require('./utils');
 
     export function toPng(context, layer) {
 
@@ -53,7 +54,7 @@ And perform the export.
 
 .. code-block:: javascript
 
-      const path = `${ NSTemporaryDirectory() }sketch.png`;
+      const path = utils.getTemporaryPath('sketch-', '.png');
       context.document.saveArtboardOrSlice_toFile(slice, path);
 
 To read the PNG file back, we have to access the filesystem on the Cocoa side of
