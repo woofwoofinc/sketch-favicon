@@ -67,6 +67,11 @@ for the container development case, use the following command:
 
     defaults write ~/Library/Preferences/com.bohemiancoding.sketch3.plist AlwaysReloadScript -bool YES
 
+If you want to help extend and improve this project, then your contributions
+would be greatly appreciated. Check out our [GitHub issues] for ideas or a
+place to ask questions. Welcome to the team!
+
+[GitHub issues]: https://github.com/woofwoofinc/sketch-favicon/issues
 
 License
 -------
