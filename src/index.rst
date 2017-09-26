@@ -10,6 +10,7 @@ Source Code
 
    js/manifest.json
    js/export-favicon.js
+   js/ui.js
    js/png.js
    js/ico.js
    js/utils.js
