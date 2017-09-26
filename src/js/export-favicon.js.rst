@@ -42,7 +42,8 @@ specific code or violate the macOS application sandboxing.
 
 Export Favicon Command
 ======================
-Start by ensuring a single layer has been selected as the favicon export source.
+Start with validation, ensure a single layer has been selected as the favicon
+export source and that it is square and 256x256 or larger.
 
 .. code-block:: javascript
 
@@ -53,46 +54,69 @@ Start by ensuring a single layer has been selected as the favicon export source.
     export default function (context) {
       const sketch = context.api();
 
+      const errors = [];
       const layers = sketch.selectedDocument.selectedLayers;
 
       if (layers.length === 0) {
-        sketch.alert('Select a layer to export as favicon.', 'Error');
-      } else if (layers.length > 1) {
-        sketch.alert('Select a single layer to export as favicon.', 'Error');
-      } else {
+        errors.push('Select a layer to export as favicon.');
+      }
+
+      if (layers.length > 1) {
+        errors.push('Select a single layer to export as favicon.');
+      }
+
+      layers.iterate(layer => {
+        const bounds = layer.sketchObject.absoluteRect();
+
+        if (bounds.width() !== bounds.height()) {
+          errors.push('Select a square layer to export as favicon.');
+        }
+        if (bounds.width() < 256) {
+          errors.push('Select a layer at least 256x256 to export as favicon.');
+        }
+      });
+
+None of these errors are recoverable so error out. Only need to specify a single
+error cause for this.
+
+.. code-block:: javascript
+
+      if (errors.length > 0) {
+        sketch.alert(errors[0], 'Error');
+        return;
+      }
 
 Prompt the user for the output favicon file location.
 
 .. code-block:: javascript
 
-        const dialog = NSSavePanel.savePanel();
-        dialog.setTitle('Export Selected Layer as Favicon');
-        dialog.setNameFieldStringValue('favicon.ico');
-        dialog.setAllowedFileTypes([ 'ico' ]);
-        dialog.setShowsTagField(false);
-        dialog.setIsExtensionHidden(false);
-        dialog.setCanSelectHiddenExtension(true);
+      const dialog = NSSavePanel.savePanel();
+      dialog.setTitle('Export Selected Layer as Favicon');
+      dialog.setNameFieldStringValue('favicon.ico');
+      dialog.setAllowedFileTypes([ 'ico' ]);
+      dialog.setShowsTagField(false);
+      dialog.setIsExtensionHidden(false);
+      dialog.setCanSelectHiddenExtension(true);
 
-        if (dialog.runModal() === NSOKButton) {
+      if (dialog.runModal() === NSOKButton) {
 
 If the Save button was selected then iterate through the (single element) array
 generating favicon files.
 
 .. code-block:: javascript
 
-          layers.iterate(layer => {
-            const pngData = png.toPng(context, layer);
-            const icoData = ico.fromPng(pngData);
+        layers.iterate(layer => {
+          const pngData = png.toPng(context, layer);
+          const icoData = ico.fromPng(pngData);
 
 Finally write the data to the output file location.
 
 .. code-block:: javascript
 
-            const encoded = base64EncodeToString(icoData);
-            const data = NSData.alloc().initWithBase64EncodedString_options(encoded, 0);
+          const encoded = base64EncodeToString(icoData);
+          const data = NSData.alloc().initWithBase64EncodedString_options(encoded, 0);
 
-            data.writeToURL_atomically(dialog.URL(), false);
-          });
-        }
+          data.writeToURL_atomically(dialog.URL(), false);
+        });
       }
     }
