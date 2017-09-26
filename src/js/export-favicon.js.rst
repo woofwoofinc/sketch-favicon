@@ -115,6 +115,16 @@ Prompt the user with checkbox selections for the output favicon save sizes.
         if (sizesDialog.runModal() == '1000') {
           const sizes = sizesDialog.getSelectedSizes();
 
+For perceived performance, do the PNG file resizing here. This will happen in
+the UI between the user finishing the size checkbox dialog and the save location
+dialog appearing. It is not a significant improvement but it is a little less
+bad from the user's perspective compared to stalling the UI thread after the
+user has finished the entire interaction by selecting the save location.
+
+.. code-block:: javascript
+
+          const pngs = png.resize(pngData, sizes);
+
 If the Ok button was selected, next prompt the user for the output favicon save
 location.
 
@@ -130,7 +140,7 @@ If the Save button was selected then generate the output favicon file.
 
 .. code-block:: javascript
 
-            const icoData = ico.fromPng(pngData, sizes);
+            const icoData = ico.fromPngs(pngs);
 
 Finally write the data to the output file location.
 

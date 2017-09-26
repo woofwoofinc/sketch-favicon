@@ -88,3 +88,32 @@ Then decode and parse the PNG data.
 
       return UPNG.decode(buffer);
     }
+
+
+Resize PNG
+----------
+Resize the provided PNG data for the sizes to be included in the output ICO
+file. All requested output sizes must be at most 256 pixels.
+
+.. code-block:: javascript
+
+    const resizeImageData = require('resize-image-data');
+
+    export function resize(data, sizes) {
+      return sizes.map(size => {
+
+Since the Sketch layer to PNG conversion also scales the PNG to 256x256, we can
+save doing this rescale if requested. This is very advantageous since it
+eliminates the largest/slowest resize size that would be typically be used.
+Resize performance is a problem since it is performed on the JavaScript side of
+the bridge and results in noticeable UI thread freezing.
+
+.. code-block:: javascript
+
+        if (size === data.height) {
+          return data;
+        }
+
+        return resizeImageData(data, size, size, 'biliniear-interpolation');
+      });
+    }
