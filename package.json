@@ -9,7 +9,7 @@
     "url": "https://github.com/woofwoofinc/sketch-favicon.git"
   },
   "scripts": {
-    "build": "literacy src/js --copy-files --out-dir lib && eslint lib && skpm build",
+    "build": "literacy src/js --out-dir lib && eslint lib && skpm build",
     "publish": "skpm publish"
   },
   "engines": {
