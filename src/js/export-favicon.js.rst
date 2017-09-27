@@ -42,11 +42,15 @@ specific code or violate the macOS application sandboxing.
 
 Export Favicon Command
 ======================
+
+Validation
+----------
 Start with validation, ensure a single layer has been selected as the favicon
 export source and that it is square and 256x256 or larger.
 
 .. code-block:: javascript
 
+    const ui = require('./ui');
     const png = require('./png');
     const ico = require('./ico');
     const base64EncodeToString = require('./utils').base64EncodeToString;
@@ -86,37 +90,57 @@ error cause for this.
         return;
       }
 
-Prompt the user for the output favicon file location.
+
+Convert Selected Layer to PNG
+-----------------------------
+For perceived performance, it is useful to convert the selected layer to PNG
+before prompting the user for output sizes and location. This moves part of the
+slow calculations needed to before the main generation step.
+
+Iterate through the (single element) array of selected layers.
 
 .. code-block:: javascript
 
-      const dialog = NSSavePanel.savePanel();
-      dialog.setTitle('Export Selected Layer as Favicon');
-      dialog.setNameFieldStringValue('favicon.ico');
-      dialog.setAllowedFileTypes([ 'ico' ]);
-      dialog.setShowsTagField(false);
-      dialog.setIsExtensionHidden(false);
-      dialog.setCanSelectHiddenExtension(true);
+      layers.iterate(layer => {
+        const pngData = png.toPng(context, layer);
 
-      if (dialog.runModal() === NSOKButton) {
 
-If the Save button was selected then iterate through the (single element) array
-generating favicon files.
+Dialogs
+-------
+Prompt the user with checkbox selections for the output favicon save sizes.
 
 .. code-block:: javascript
 
-        layers.iterate(layer => {
-          const pngData = png.toPng(context, layer);
-          const icoData = ico.fromPng(pngData);
+        const sizesDialog = ui.faviconIconSizesDialog();
+        if (sizesDialog.runModal() == '1000') {
+          const sizes = sizesDialog.getSelectedSizes();
+
+If the Ok button was selected, next prompt the user for the output favicon save
+location.
+
+.. code-block:: javascript
+
+          const saveDialog = ui.faviconIconSaveDialog();
+          if (saveDialog.runModal() === NSOKButton) {
+
+
+Output Favicon Icon Generation
+------------------------------
+If the Save button was selected then generate the output favicon file.
+
+.. code-block:: javascript
+
+            const icoData = ico.fromPng(pngData, sizes);
 
 Finally write the data to the output file location.
 
 .. code-block:: javascript
 
-          const encoded = base64EncodeToString(icoData);
-          const data = NSData.alloc().initWithBase64EncodedString_options(encoded, 0);
+            const encoded = base64EncodeToString(icoData);
+            const data = NSData.alloc().initWithBase64EncodedString_options(encoded, 0);
 
-          data.writeToURL_atomically(dialog.URL(), false);
-        });
-      }
+            data.writeToURL_atomically(saveDialog.URL(), false);
+          }
+        }
+      });
     }

@@ -186,15 +186,13 @@ performance penalty.
 Exports
 ~~~~~~~
 Take the provided PNG data and start by resizing to the sizes to be included in
-the output ICO file.
+the output ICO file. All requested output sizes must be at most 256 pixels.
 
 .. code-block:: javascript
 
     const resizeImageData = require('resize-image-data');
 
-    export function fromPng(data) {
-
-      const sizes = [ 16, 24, 32, 48, 64, 128, 256 ];
+    export function fromPng(data, sizes) {
       const pngs = sizes.map(size =>
          resizeImageData(data, size, size, 'biliniear-interpolation')
       );
