@@ -79,6 +79,7 @@ place to ask questions. Welcome to the team!
 
 [GitHub issues]: https://github.com/woofwoofinc/sketch-favicon/issues
 
+
 License
 -------
 This work is dual-licensed under the Apache License, Version 2.0 and under the
