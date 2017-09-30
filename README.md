@@ -7,6 +7,12 @@
 
 [Sketch]: https://www.sketchapp.com
 
+Solves a problem where the author is unable to remember the ImageMagick
+conversion command line and options to make `favicon.ico` files with the needed
+sizes. This plugin is broadly equivalent to:
+
+    convert icon.png -define icon:auto-resize=256,128,64,48,32,24,16 favicon.ico
+
 Detailed documentation is provided in the [src] directories and at
 [woofwoofinc.github.io/sketch-favicon].
 
@@ -72,6 +78,7 @@ would be greatly appreciated. Check out our [GitHub issues] for ideas or a
 place to ask questions. Welcome to the team!
 
 [GitHub issues]: https://github.com/woofwoofinc/sketch-favicon/issues
+
 
 License
 -------
