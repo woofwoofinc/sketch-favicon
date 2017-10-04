@@ -75,8 +75,8 @@ export source and that it is square and 256x256 or larger.
         if (bounds.width() !== bounds.height()) {
           errors.push('Select a square layer to export as favicon.');
         }
-        if (bounds.width() < 256) {
-          errors.push('Select a layer at least 256x256 to export as favicon.');
+        if (bounds.width() < 16) {
+          errors.push('Select a layer at least 16x16 to export as favicon.');
         }
       });
 
@@ -111,7 +111,7 @@ Prompt the user with checkbox selections for the output favicon save sizes.
 
 .. code-block:: javascript
 
-        const sizesDialog = ui.faviconIconSizesDialog();
+        const sizesDialog = ui.faviconIconSizesDialog(pngData.width);
         if (sizesDialog.runModal() == '1000') {
           const sizes = sizesDialog.getSelectedSizes();
 
