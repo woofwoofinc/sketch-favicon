@@ -12,9 +12,6 @@
     "build": "literacy src/js --out-dir lib && eslint lib && skpm build",
     "publish": "skpm publish"
   },
-  "engines": {
-    "sketch": ">=3.0"
-  },
   "skpm": {
     "manifest": "lib/manifest.json",
     "main": "favicon.sketchplugin"
