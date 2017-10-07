@@ -38,6 +38,7 @@ acbuild run -- apt-get install -qq wget
 acbuild run -- apt-get install -qq build-essential
 acbuild run -- apt-get install -qq git
 acbuild run -- apt-get install -qq jq
+acbuild run -- apt-get install -qq zip
 
 
 ################################################################################

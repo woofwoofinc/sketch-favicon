@@ -1,6 +1,98 @@
 Releasing
 =========
 
+Release Checklist
+-----------------
+1. Check version number is correct in ``package.json`` and ``src/conf.py``.
+2. Build release zip and upload to GitHub releases.
+3. Update the ``.appcast.xml`` file.
+4. Build documentation and upload to GitHub pages.
+5. Update version numbers for next development cycle.
+
+
+Building a Release
+------------------
+Prepare a release by building the distributable zip archive file to contain the
+plugin binary.
+
+First, install the project development dependencies if this hasn't been done
+already.
+
+::
+
+    yarn
+
+Build the ``favicon.sketchplugin`` directory contents for publication.
+
+::
+
+    rm -fr favicon.sketchplugin && yarn build
+
+Create the final compressed format.
+
+::
+
+    zip -r9 favicon.sketchplugin.zip favicon.sketchplugin
+
+
+Preparing the GitHub Release
+----------------------------
+Take the SHA256 of the ``favicon.sketchplugin.zip`` binary:
+
+::
+
+    shasum -a 256 favicon.sketchplugin.zip
+
+Then create a new Sketch Favicon release on the `GitHub Releases`_ page. The
+release should be named the same as the version number in ``package.json``
+and also be tagged with this value.
+
+.. _GitHub Releases: https://github.com/woofwoofinc/sketch-favicon/releases
+
+The release text should include the SHA256 value generated earlier. The
+following is a template for the release text.
+
+::
+
+    Release <version> of Sketch Favicon.
+
+
+    # Release Notes
+    - Important change 1.
+    - Important change 2.
+
+
+    # Checksum
+    - sha256: 2c972966358a79b35e5c6e73143415d86bbaa6dd2ef3a4cee0fda00cc81a053c
+
+
+Update the Appcast File
+-----------------------
+Add an item entry in the ``.appcast.xml`` file containing information about the
+release. This enables the `Sketch plugin update feature`_ to prompt users to
+update the Sketch Favicon plugin when then new version is available.
+
+.. _Sketch plugin update feature: http://developer.sketchapp.com/introduction/updating-plugins/
+
+The item stanza for a new version should look similar to the following:
+
+::
+
+    <item>
+      <title>Version 1.0.0</title>
+      <description>
+        <![CDATA[
+          <ul>
+          <li>Major update v1.0.0</li>
+          </ul>
+        ]]>
+      </description>
+      <enclosure
+        url="https://github.com/woofwoofinc/sketch-favicon/releases/download/1.0.0/favicon.sketchplugin.zip"
+        sparkle:version="1.0.0"/>
+    </item>
+
+
 Publishing the Documentation
 ----------------------------
 Project documentation is published to `woofwoofinc.github.io/sketch-favicon`_
