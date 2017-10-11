@@ -1,7 +1,7 @@
 {
   "name": "sketch-favicon",
   "description": "Sketch plugin for favicon generation.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "(Apache-2.0 OR MIT)",
   "homepage": "https://github.com/woofwoofinc/sketch-favicon",
   "repository": {
