@@ -26,7 +26,7 @@ Build the ``favicon.sketchplugin`` directory contents for publication.
 
 ::
 
-    rm -fr favicon.sketchplugin && yarn build
+    rm -fr favicon.sketchplugin favicon.sketchplugin.zip && yarn build
 
 Create the final compressed format.
 
