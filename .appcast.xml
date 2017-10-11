@@ -10,6 +10,19 @@
     <description>Plugin for favicon generation.</description>
     <language>en</language>
     <item>
+      <title>Version 1.0.0</title>
+      <description>
+        <![CDATA[
+          <ul>
+          <li>Major update v1.0.0</li>
+          </ul>
+        ]]>
+      </description>
+      <enclosure
+        url="https://github.com/woofwoofinc/sketch-favicon/releases/download/1.0.0/favicon.sketchplugin.zip"
+        sparkle:version="1.0.0"/>
+    </item>
+    <item>
       <title>Version 0.1.0</title>
       <description>
         <![CDATA[
