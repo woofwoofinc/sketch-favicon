@@ -17,14 +17,14 @@ pushd "$TMP_DIR" > /dev/null
 # Download Base Image
 ################################################################################
 
-wget http://cdimage.ubuntu.com/ubuntu-base/releases/17.04/release/ubuntu-base-17.04-base-amd64.tar.gz
+wget http://cdimage.ubuntu.com/ubuntu-base/releases/17.10/release/ubuntu-base-17.10-base-amd64.tar.gz
 
 
 ################################################################################
 # Start Image Build
 ################################################################################
 
-acbuild begin --build-mode=oci ./ubuntu-base-17.04-base-amd64.tar.gz
+acbuild begin --build-mode=oci ./ubuntu-base-17.10-base-amd64.tar.gz
 
 
 ################################################################################
@@ -84,6 +84,7 @@ acbuild run -- rm yarn-v${YARN_VERSION}.tar.gz
 # Sketch Plugin Manager
 ################################################################################
 
+acbuild run -- apt-get install -qq pkg-config libsecret-1-dev
 acbuild run -- /usr/bin/yarn global add skpm
 
 
