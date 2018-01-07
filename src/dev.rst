@@ -5,9 +5,9 @@ Development Tools Container
 The project source comes with a ``dev`` directory which contains a script for
 building a rkt Ubuntu container with useful development tools.
 
-To build this you must have a system with an installation of rkt and acbuild.
+To build this you must have a system with an installation of rkt and buildah.
 For macOS, the RktMachine_ project provides an xhyve-based VM running CoreOS
-with installations of rkt, acbuild, docker2aci, and other useful container
+with installations of rkt, buildah, docker2aci, and other useful container
 tools.
 
 .. _RktMachine: https://github.com/woofwoofinc/rktmachine
@@ -19,7 +19,7 @@ Build the container using the provided build script:
 
 ::
 
-    ./dev-sketch-favicon.acbuild.sh
+    ./dev-sketch-favicon.buildah.sh
 
 This will make a ``dev-sketch-favicon.oci`` in the directory. Convert this to
 ``dev-sketch-favicon.aci`` for installation into rkt:
