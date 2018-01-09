@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Writing Sketch Plugins &#8212; Sketch Favicon</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/woofwoofinc.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Interfaces" href="ui.js.html" />
+    <link rel="prev" title="Sketch Favicon Plugin Manifest" href="manifest.json.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Sketch Favicon</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manifest.json.html">Sketch Favicon Plugin Manifest</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Sketch Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-dependencies">Using Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#export-favicon-command">Export Favicon Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#convert-selected-layer-to-png">Convert Selected Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-favicon-icon-generation">Output Favicon Icon Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui.js.html">User Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-sizes">Output Favicon Icon Sizes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-location">Output Favicon Icon Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="png.js.html">PNG Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="png.js.html#convert-a-layer-to-png">Convert a Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="png.js.html#resize-png">Resize PNG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ico.js.html">ICO Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ico.js.html#create-an-ico-from-png-data">Create an ICO from PNG Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.js.html">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#base64-encoding-decoding">Base64 Encoding/Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#temporary-files">Temporary Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev.html">Development Tools Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev.html#building">Building</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasing.html">Releasing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#release-checklist">Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#building-a-release">Building a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#preparing-the-github-release">Preparing the GitHub Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#update-the-appcast-file">Update the Appcast File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#publishing-the-documentation">Publishing the Documentation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conduct.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#enforcement">Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thanks.html">Thanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="manifest.json.html" title="Previous Chapter: Sketch Favicon Plugin Manifest"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Sketch Favico...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ui.js.html" title="Next Chapter: User Interfaces"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">User Interfaces &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="writing-sketch-plugins">
+<h1>Writing Sketch Plugins<a class="headerlink" href="#writing-sketch-plugins" title="Permalink to this headline">¶</a></h1>
+<p>The entry point to a Sketch plugin is a command. The <code class="docutils literal"><span class="pre">manifest.json</span></code> file
+lists the available commands for a plugin, their JavaScript files and how they
+are listed in the Plugins menu in Sketch.</p>
+<p>On selection of the command menu item, or by shortcut, Sketch calls the exported
+function in the corresponding JavaScript file and passes a context object. This
+context object is described in the
+<a class="reference external" href="http://developer.sketchapp.com/introduction/plugin-scripts/">Sketch Plugins, Scripts, and Commands Documentation</a> and includes the
+following fields:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">command</span></code>: MSPluginCommand object</li>
+<li><code class="docutils literal"><span class="pre">document</span></code>: MSDocument object</li>
+<li><code class="docutils literal"><span class="pre">plugin</span></code>: MSPluginBundle object</li>
+<li><code class="docutils literal"><span class="pre">selection</span></code>: NSArray of MSLayer objects</li>
+</ul>
+<p>The MS-prefixed objects are Sketch internals. They are not well documented yet
+in the Sketch plugin development guides but the header files have been extracted
+and are available in <a class="reference external" href="https://github.com/abynim/Sketch-Headers">Sketch-Headers</a>. For instance, the <a class="reference external" href="https://github.com/abynim/Sketch-Headers/blob/master/Headers/MSLayer.h">MSLayer header file</a>
+lists methods and properties for MSLayer objects in the <code class="docutils literal"><span class="pre">selection</span></code> array.</p>
+<p>Alternatively, the context object provides an <code class="docutils literal"><span class="pre">api</span></code> method which returns a
+JavaScript interface. This is documented starting in <a class="reference external" href="http://developer.sketchapp.com/reference/api/class/api/Application.js~Application.html">Application.js</a>.</p>
+<div class="section" id="using-dependencies">
+<h2>Using Dependencies<a class="headerlink" href="#using-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The Sketch Plugin Manager uses Webpack under the hood. This bundles the plugin
+scripts together with the dependencies into a single JavaScript file. This is
+output to the generated Sketch plugin. Therefore dependencies provided using
+the Node module system and NPM will generally work unless they rely on system
+specific code or violate the macOS application sandboxing.</p>
+</div>
+</div>
+<div class="section" id="export-favicon-command">
+<h1>Export Favicon Command<a class="headerlink" href="#export-favicon-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="validation">
+<h2>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
+<p>Start with validation, ensure a single layer has been selected as the favicon
+export source and that it is square and 256x256 or larger.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">ui</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./ui&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">png</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./png&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">ico</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./ico&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">base64EncodeToString</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./utils&#39;</span><span class="p">).</span><span class="nx">base64EncodeToString</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">sketch</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">api</span><span class="p">();</span>
+
+  <span class="kr">const</span> <span class="nx">errors</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kr">const</span> <span class="nx">layers</span> <span class="o">=</span> <span class="nx">sketch</span><span class="p">.</span><span class="nx">selectedDocument</span><span class="p">.</span><span class="nx">selectedLayers</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Select a layer to export as favicon.&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Select a single layer to export as favicon.&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">layers</span><span class="p">.</span><span class="nx">iterate</span><span class="p">(</span><span class="nx">layer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">sketchObject</span><span class="p">.</span><span class="nx">absoluteRect</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span><span class="p">()</span> <span class="o">!==</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">height</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Select a square layer to export as favicon.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">errors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;Select a layer at least 16x16 to export as favicon.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+</pre></div>
+</div>
+<p>None of these errors are recoverable so error out. Only need to specify a single
+error cause for this.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">sketch</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="nx">errors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Error&#39;</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert-selected-layer-to-png">
+<h2>Convert Selected Layer to PNG<a class="headerlink" href="#convert-selected-layer-to-png" title="Permalink to this headline">¶</a></h2>
+<p>For perceived performance, it is useful to convert the selected layer to PNG
+before prompting the user for output sizes and location. This moves part of the
+slow calculations needed to before the main generation step.</p>
+<p>Iterate through the (single element) array of selected layers.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="nx">layers</span><span class="p">.</span><span class="nx">iterate</span><span class="p">(</span><span class="nx">layer</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">pngData</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">toPng</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">layer</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dialogs">
+<h2>Dialogs<a class="headerlink" href="#dialogs" title="Permalink to this headline">¶</a></h2>
+<p>Prompt the user with checkbox selections for the output favicon save sizes.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">sizesDialog</span> <span class="o">=</span> <span class="nx">ui</span><span class="p">.</span><span class="nx">faviconIconSizesDialog</span><span class="p">(</span><span class="nx">pngData</span><span class="p">.</span><span class="nx">width</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">sizesDialog</span><span class="p">.</span><span class="nx">runModal</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;1000&#39;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">sizes</span> <span class="o">=</span> <span class="nx">sizesDialog</span><span class="p">.</span><span class="nx">getSelectedSizes</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>For perceived performance, do the PNG file resizing here. This will happen in
+the UI between the user finishing the size checkbox dialog and the save location
+dialog appearing. It is not a significant improvement but it is a little less
+bad from the user’s perspective compared to stalling the UI thread after the
+user has finished the entire interaction by selecting the save location.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">pngs</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">resize</span><span class="p">(</span><span class="nx">pngData</span><span class="p">,</span> <span class="nx">sizes</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the Ok button was selected, next prompt the user for the output favicon save
+location.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">saveDialog</span> <span class="o">=</span> <span class="nx">ui</span><span class="p">.</span><span class="nx">faviconIconSaveDialog</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">saveDialog</span><span class="p">.</span><span class="nx">runModal</span><span class="p">()</span> <span class="o">===</span> <span class="nx">NSOKButton</span><span class="p">)</span> <span class="p">{</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="output-favicon-icon-generation">
+<h2>Output Favicon Icon Generation<a class="headerlink" href="#output-favicon-icon-generation" title="Permalink to this headline">¶</a></h2>
+<p>If the Save button was selected then generate the output favicon file.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">icoData</span> <span class="o">=</span> <span class="nx">ico</span><span class="p">.</span><span class="nx">fromPngs</span><span class="p">(</span><span class="nx">pngs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally write the data to the output file location.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>        <span class="kr">const</span> <span class="nx">encoded</span> <span class="o">=</span> <span class="nx">base64EncodeToString</span><span class="p">(</span><span class="nx">icoData</span><span class="p">);</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">NSData</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">initWithBase64EncodedString_options</span><span class="p">(</span><span class="nx">encoded</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="nx">data</span><span class="p">.</span><span class="nx">writeToURL_atomically</span><span class="p">(</span><span class="nx">saveDialog</span><span class="p">.</span><span class="nx">URL</span><span class="p">(),</span> <span class="kc">false</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Releasing &#8212; Sketch Favicon</title>
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/woofwoofinc.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Documentation" href="documentation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          Sketch Favicon</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="js/manifest.json.html">Sketch Favicon Plugin Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="js/export-favicon.js.html">Writing Sketch Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/export-favicon.js.html#using-dependencies">Using Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js/export-favicon.js.html#export-favicon-command">Export Favicon Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/export-favicon.js.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/export-favicon.js.html#convert-selected-layer-to-png">Convert Selected Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/export-favicon.js.html#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/export-favicon.js.html#output-favicon-icon-generation">Output Favicon Icon Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js/ui.js.html">User Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/ui.js.html#output-favicon-icon-sizes">Output Favicon Icon Sizes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/ui.js.html#output-favicon-icon-location">Output Favicon Icon Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js/png.js.html">PNG Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/png.js.html#convert-a-layer-to-png">Convert a Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/png.js.html#resize-png">Resize PNG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js/ico.js.html">ICO Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/ico.js.html#create-an-ico-from-png-data">Create an ICO from PNG Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="js/utils.js.html">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="js/utils.js.html#base64-encoding-decoding">Base64 Encoding/Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="js/utils.js.html#temporary-files">Temporary Files</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Development Tools Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev.html#building">Building</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Releasing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#release-checklist">Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-a-release">Building a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-the-github-release">Preparing the GitHub Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-the-appcast-file">Update the Appcast File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#publishing-the-documentation">Publishing the Documentation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conduct.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#enforcement">Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conduct.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thanks.html">Thanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="documentation.html" title="Previous Chapter: Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Documentation</span>
+    </a>
+  </li>
+  <li>
+    <a href="contributing.html" title="Next Chapter: Contributing"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contributing &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="releasing">
+<h1>Releasing<a class="headerlink" href="#releasing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="release-checklist">
+<h2>Release Checklist<a class="headerlink" href="#release-checklist" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Check version number is correct in <code class="docutils literal"><span class="pre">package.json</span></code> and <code class="docutils literal"><span class="pre">src/conf.py</span></code>.</li>
+<li>Build release zip and upload to GitHub releases.</li>
+<li>Update the <code class="docutils literal"><span class="pre">.appcast.xml</span></code> file.</li>
+<li>Build documentation and upload to GitHub pages.</li>
+<li>Update version numbers for next development cycle.</li>
+</ol>
+</div>
+<div class="section" id="building-a-release">
+<h2>Building a Release<a class="headerlink" href="#building-a-release" title="Permalink to this headline">¶</a></h2>
+<p>Prepare a release by building the distributable zip archive file to contain the
+plugin binary.</p>
+<p>First, install the project development dependencies if this hasn’t been done
+already.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">yarn</span>
+</pre></div>
+</div>
+<p>Build the <code class="docutils literal"><span class="pre">favicon.sketchplugin</span></code> directory contents for publication.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">fr</span> <span class="n">favicon</span><span class="o">.</span><span class="n">sketchplugin</span> <span class="n">favicon</span><span class="o">.</span><span class="n">sketchplugin</span><span class="o">.</span><span class="n">zip</span> <span class="o">&amp;&amp;</span> <span class="n">yarn</span> <span class="n">build</span>
+</pre></div>
+</div>
+<p>Create the final compressed format.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">zip</span> <span class="o">-</span><span class="n">r9</span> <span class="n">favicon</span><span class="o">.</span><span class="n">sketchplugin</span><span class="o">.</span><span class="n">zip</span> <span class="n">favicon</span><span class="o">.</span><span class="n">sketchplugin</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preparing-the-github-release">
+<h2>Preparing the GitHub Release<a class="headerlink" href="#preparing-the-github-release" title="Permalink to this headline">¶</a></h2>
+<p>Take the SHA256 of the <code class="docutils literal"><span class="pre">favicon.sketchplugin.zip</span></code> binary:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">shasum</span> <span class="o">-</span><span class="n">a</span> <span class="mi">256</span> <span class="n">favicon</span><span class="o">.</span><span class="n">sketchplugin</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>Then create a new Sketch Favicon release on the <a class="reference external" href="https://github.com/woofwoofinc/sketch-favicon/releases">GitHub Releases</a> page. The
+release should be named the same as the version number in <code class="docutils literal"><span class="pre">package.json</span></code>
+and also be tagged with this value.</p>
+<p>The release text should include the SHA256 value generated earlier. The
+following is a template for the release text.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Release</span> <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span> <span class="n">of</span> <span class="n">Sketch</span> <span class="n">Favicon</span><span class="o">.</span>
+
+
+<span class="c1"># Release Notes</span>
+<span class="o">-</span> <span class="n">Important</span> <span class="n">change</span> <span class="mf">1.</span>
+<span class="o">-</span> <span class="n">Important</span> <span class="n">change</span> <span class="mf">2.</span>
+
+
+<span class="c1"># Checksum</span>
+<span class="o">-</span> <span class="n">sha256</span><span class="p">:</span> <span class="mi">2</span><span class="n">c972966358a79b35e5c6e73143415d86bbaa6dd2ef3a4cee0fda00cc81a053c</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-the-appcast-file">
+<h2>Update the Appcast File<a class="headerlink" href="#update-the-appcast-file" title="Permalink to this headline">¶</a></h2>
+<p>Add an item entry in the <code class="docutils literal"><span class="pre">.appcast.xml</span></code> file containing information about the
+release. This enables the <a class="reference external" href="http://developer.sketchapp.com/introduction/updating-plugins/">Sketch plugin update feature</a> to prompt users to
+update the Sketch Favicon plugin when then new version is available.</p>
+<p>The item stanza for a new version should look similar to the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;item&gt;
+  &lt;title&gt;Version 1.0.0&lt;/title&gt;
+  &lt;description&gt;
+    &lt;![CDATA[
+      &lt;ul&gt;
+      &lt;li&gt;Major update v1.0.0&lt;/li&gt;
+      &lt;/ul&gt;
+    ]]&gt;
+  &lt;/description&gt;
+  &lt;enclosure
+    url=&quot;https://github.com/woofwoofinc/sketch-favicon/releases/download/1.0.0/favicon.sketchplugin.zip&quot;
+    sparkle:version=&quot;1.0.0&quot;/&gt;
+&lt;/item&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="publishing-the-documentation">
+<h2>Publishing the Documentation<a class="headerlink" href="#publishing-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Project documentation is published to <a class="reference external" href="https://woofwoofinc.github.io/sketch-favicon">woofwoofinc.github.io/sketch-favicon</a>
+using <a class="reference external" href="https://pages.github.com">GitHub Pages</a>.</p>
+<p>First build the documentation as described in <a class="reference internal" href="documentation.html#documentation"><span class="std std-ref">Documentation</span></a>.</p>
+<p>The GitHub configuration for this project is to serve documentation from the
+<code class="docutils literal"><span class="pre">gh-pages</span></code> branch. Rather than attempt to build a new <code class="docutils literal"><span class="pre">gh-pages</span></code> in the
+current repository, it is simpler to copy the repository, change to <code class="docutils literal"><span class="pre">gh-pages</span></code>
+in the repository copy, and clean everything from there. This has the advantage
+of not operating in the current repository too so it is non-destructive.</p>
+<p>Create a copy of the repository.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">sketch</span><span class="o">-</span><span class="n">favicon</span> <span class="n">sketch</span><span class="o">-</span><span class="n">favicon</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+<p>Then change into the new repository and swap to the <code class="docutils literal"><span class="pre">gh-pages</span></code> branch.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pushd</span> <span class="n">sketch</span><span class="o">-</span><span class="n">favicon</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+<p>Clear out everything in the branch. This uses dot globing and extended glob
+options to arrange deletion of everything except the .git directory.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>shopt -s dotglob
+shopt -s extglob
+rm -fr !(.git)
+
+shopt -u extglob
+shopt -u dotglob
+</pre></div>
+</div>
+<p>Next, copy in the contents of <code class="docutils literal"><span class="pre">src/_build/html</span></code> from the main project
+repository. This is the latest build of the documentation. Dot globing is
+used again since the dot files in the <code class="docutils literal"><span class="pre">src/_build/html</span></code> directory are also
+needed.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">shopt</span> <span class="o">-</span><span class="n">s</span> <span class="n">dotglob</span>
+<span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="o">../</span><span class="n">sketch</span><span class="o">-</span><span class="n">favicon</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">_build</span><span class="o">/</span><span class="n">html</span><span class="o">/*</span> <span class="o">.</span>
+
+<span class="n">shopt</span> <span class="o">-</span><span class="n">u</span> <span class="n">dotglob</span>
+</pre></div>
+</div>
+<p>Commit the documentation and push the <code class="docutils literal"><span class="pre">gh-pages</span></code> branch to GitHub.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="n">A</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Add latest documentation.&quot;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+<p>Then clean up the temporary repository.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">popd</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">fr</span> <span class="n">sketch</span><span class="o">-</span><span class="n">favicon</span><span class="o">-</span><span class="n">gh</span><span class="o">-</span><span class="n">pages</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

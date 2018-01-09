@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ICO Handling &#8212; Sketch Favicon</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/woofwoofinc.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Utility Functions" href="utils.js.html" />
+    <link rel="prev" title="PNG Handling" href="png.js.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Sketch Favicon</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manifest.json.html">Sketch Favicon Plugin Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-favicon.js.html">Writing Sketch Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#using-dependencies">Using Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="export-favicon.js.html#export-favicon-command">Export Favicon Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#convert-selected-layer-to-png">Convert Selected Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#output-favicon-icon-generation">Output Favicon Icon Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui.js.html">User Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-sizes">Output Favicon Icon Sizes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-location">Output Favicon Icon Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="png.js.html">PNG Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="png.js.html#convert-a-layer-to-png">Convert a Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="png.js.html#resize-png">Resize PNG</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ICO Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-an-ico-from-png-data">Create an ICO from PNG Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.js.html">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#base64-encoding-decoding">Base64 Encoding/Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#temporary-files">Temporary Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev.html">Development Tools Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev.html#building">Building</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasing.html">Releasing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#release-checklist">Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#building-a-release">Building a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#preparing-the-github-release">Preparing the GitHub Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#update-the-appcast-file">Update the Appcast File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#publishing-the-documentation">Publishing the Documentation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conduct.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#enforcement">Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thanks.html">Thanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="png.js.html" title="Previous Chapter: PNG Handling"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; PNG Handling</span>
+    </a>
+  </li>
+  <li>
+    <a href="utils.js.html" title="Next Chapter: Utility Functions"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Utility Functions &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="ico-handling">
+<h1>ICO Handling<a class="headerlink" href="#ico-handling" title="Permalink to this headline">¶</a></h1>
+<p>Utilities for generating and handling ICO data.</p>
+<div class="section" id="create-an-ico-from-png-data">
+<h2>Create an ICO from PNG Data<a class="headerlink" href="#create-an-ico-from-png-data" title="Permalink to this headline">¶</a></h2>
+<p>Follows <a class="reference external" href="https://github.com/kevva">Kevin Mårtensson</a>’s <a class="reference external" href="https://github.com/kevva/to-ico">to-ico</a>. See the <a class="reference external" href="https://en.wikipedia.org/wiki/ICO_%28file_format%29#Outline">ICO File Format</a>
+specification on Wikipedia for reference.</p>
+<p>The ICO file header block is six bytes, or three 16-bit integers written in
+little-endian order.</p>
+<ul class="simple">
+<li>The first 16-bit integer always 0.</li>
+<li>The second 16-bit integer is 1 in ICO files.</li>
+<li>The third 16-bit integer is the number of images in the ICO file.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bufferAlloc</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;buffer-alloc&#39;</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">createHeader</span><span class="p">(</span><span class="nx">numImages</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">bufferAlloc</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="nx">numImages</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">buf</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Each bitmap in the ICO file requires an ICONDIRENTRY block. These are 16 bytes
+long and consist of the following entries in order.</p>
+<ul class="simple">
+<li>An 8-bit integer specifying the width of the bitmap in pixels. The maximum
+width of a bitmap in an ICO file is 256 pixels. Since zero pixels is an
+invalid width, the zero value instead corresponds to a bitmap that is 256
+pixels wide.</li>
+<li>An 8-bit integer specifying the height of the bitmap in pixels. The maximum
+height of a bitmap in an ICO file is 256 pixels. Since zero pixels is an
+invalid height, the zero value instead corresponds to a bitmap that is 256
+pixels high.</li>
+<li>An 8-bit integer for the number of colours in the colour palette. This will be
+zero for the ICO files here since they do not use a colour palette.</li>
+<li>8-bit integer with value 0.</li>
+<li>16-bit little endian colour plane value as an integer. This will be 1 for the
+ICO files here.</li>
+<li>16-bit little endian integer for bits per pixel. This will be 32 for the ICO
+files here since the original Sketch layer PNG is generated in RGBA, i.e.
+8 bits for each colour channel and an 8 bit alpha.</li>
+<li>32-bit little endian integer for the size of the image data block in bytes.
+This should include the size of the image data plus the 40 bytes of header
+needed for each image data block.</li>
+<li>32-bit little endian integer for the offset of the image data block in bytes
+from the beginning of the ICO file.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">createDirectoryEntry</span><span class="p">(</span><span class="nx">png</span><span class="p">,</span> <span class="nx">offset</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">bufferAlloc</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">width</span> <span class="o">===</span> <span class="mi">256</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">png</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">height</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">height</span> <span class="o">===</span> <span class="mi">256</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nx">png</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
+
+  <span class="kr">const</span> <span class="nx">colourPlanes</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">bitsPerPixel</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">size</span> <span class="o">=</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">height</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="nx">colourPlanes</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="nx">bitsPerPixel</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="nx">size</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="nx">offset</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">buf</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The image bitmap data is stored in <a class="reference external" href="https://en.wikipedia.org/wiki/BMP_file_format">Windows BMP format</a>. The file header block
+is not required and the device-independent bitmap header used is the 40-byte
+Windows BITMAPINFOHEADER version. (See <a class="reference external" href="https://en.wikipedia.org/wiki/BMP_file_format#DIB_header_.28bitmap_information_header.29">DIB Headers</a> from Wikipedia. Note the
+40-byte variant is the second table in that second.)</p>
+<ul class="simple">
+<li>A 32-bit little endian integer containing the size in bytes of the header
+block, e.g. 40.</li>
+<li>A 32-bit little endian integer containing the width of the bitmap.</li>
+<li>A 32-bit little endian integer containing the height of the bitmap.</li>
+<li>A 16-bit little endian integer containing the number of colour planes. Must be
+1 here.</li>
+<li>A 16-bit little endian integer containing the number of bits per pixel. This
+will be 32 for RGBA PNG data here.</li>
+<li>A 32-bit little endian integer containing the compression method. Here we use
+no compression so the value is 0.</li>
+<li>A 32-bit little endian integer containing the size of the original bitmap
+data in bytes.</li>
+<li>A 32-bit little endian integer containing the horizontal resolution of the
+image. We leave this unspecified.</li>
+<li>A 32-bit little endian integer containing the vertical resolution of the
+image. We leave this unspecified.</li>
+<li>A 32-bit little endian integer containing the number of colors in the color
+palette. Use 0 to default to 2**n.</li>
+<li>A 32-bit little endian integer containing the number of important colors used,
+or 0 when every color is important; generally ignored.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The header needs a doubled height for Windows BMP format images. See
+<a class="reference external" href="https://en.wikipedia.org/wiki/ICO_(file_format)#Icon_resource_structure">ICO Icon resource structure information</a>.</p>
+</div>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">createBitmap</span><span class="p">(</span><span class="nx">png</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">buf</span> <span class="o">=</span> <span class="nx">bufferAlloc</span><span class="p">(</span><span class="mi">40</span> <span class="o">+</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+  <span class="kr">const</span> <span class="nx">colourPlanes</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">bytesPerPixel</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="kr">const</span> <span class="nx">bitsPerPixel</span> <span class="o">=</span> <span class="nx">bytesPerPixel</span> <span class="o">*</span> <span class="mi">8</span><span class="p">;</span>
+
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeInt32LE</span><span class="p">(</span><span class="nx">png</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeInt32LE</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">png</span><span class="p">.</span><span class="nx">height</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="nx">colourPlanes</span><span class="p">,</span> <span class="mi">12</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt16LE</span><span class="p">(</span><span class="nx">bitsPerPixel</span><span class="p">,</span> <span class="mi">14</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeInt32LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeInt32LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">28</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">);</span>
+  <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt32LE</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">36</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/BMP_file_format#Pixel_storage">BMP pixel storage</a> is by row arrays.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cols</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">bytesPerPixel</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">rows</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">height</span> <span class="o">*</span> <span class="nx">cols</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">end</span> <span class="o">=</span> <span class="nx">rows</span> <span class="o">-</span> <span class="nx">cols</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">row</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">row</span> <span class="o">&lt;</span> <span class="nx">rows</span><span class="p">;</span> <span class="nx">row</span> <span class="o">+=</span> <span class="nx">cols</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">col</span> <span class="o">&lt;</span> <span class="nx">cols</span><span class="p">;</span> <span class="nx">col</span> <span class="o">+=</span> <span class="nx">bytesPerPixel</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">row</span> <span class="o">+</span> <span class="nx">col</span><span class="p">;</span>
+
+    <span class="kr">const</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">pos</span><span class="p">];</span>
+    <span class="kr">const</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="kr">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">pos</span> <span class="o">+</span> <span class="mi">2</span><span class="p">];</span>
+    <span class="kr">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">pos</span> <span class="o">+</span> <span class="mi">3</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>The pixels are stored in a reverse order to normal image raster scan. They start
+in the lower left corner, go from left to right, and then row by row from the
+bottom to the top of the image.</p>
+<p>The <code class="docutils literal"><span class="pre">pos</span></code> value calculated here expands to <code class="docutils literal"><span class="pre">(rows</span> <span class="pre">-</span> <span class="pre">row)</span> <span class="pre">-</span> <span class="pre">(cols</span> <span class="pre">-</span> <span class="pre">col)</span></code>.
+Note that the <code class="docutils literal"><span class="pre">row</span></code> increment is <code class="docutils literal"><span class="pre">png.width</span> <span class="pre">*</span> <span class="pre">bytesPerPixel</span></code> and the
+<code class="docutils literal"><span class="pre">col</span></code> increment is <code class="docutils literal"><span class="pre">bytesPerPixel</span></code> so this <code class="docutils literal"><span class="pre">pos</span></code> value lines up correctly.</p>
+<p>The output buffer is preallocated so out-of-order writing is supported with no
+performance penalty.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>      <span class="nx">pos</span> <span class="o">=</span> <span class="p">(</span><span class="nx">end</span> <span class="o">-</span> <span class="nx">row</span><span class="p">)</span> <span class="o">+</span> <span class="nx">col</span><span class="p">;</span>
+
+      <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">pos</span><span class="p">);</span>
+      <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">g</span><span class="p">,</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">pos</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>
+      <span class="nx">buf</span><span class="p">.</span><span class="nx">writeUInt8</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">pos</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">buf</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="exports">
+<h3>Exports<a class="headerlink" href="#exports" title="Permalink to this headline">¶</a></h3>
+<p>The output ICO file is constructed as a set of buffers corresponding to blocks
+in the ICO file format. It saves a pass of the output buffer later if we also
+track the size of the output buffer as we go.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="kd">function</span> <span class="nx">fromPngs</span><span class="p">(</span><span class="nx">pngs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">buffers</span> <span class="o">=</span> <span class="p">[</span> <span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The first ICO file format block is the header.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">header</span> <span class="o">=</span> <span class="nx">createHeader</span><span class="p">(</span><span class="nx">pngs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+<span class="nx">buffers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">header</span><span class="p">);</span>
+<span class="nx">length</span> <span class="o">+=</span> <span class="nx">header</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Each image in the ICO output file requires a seperate directory entry in the
+listing that follows the ICO header. The image data is included later in the
+file.</p>
+<p>Since the directory entry record needs a pointer to the image data for that
+record, it is necessary to perform the offset calculation while preparing the
+directory entry records. The directory entries themselves are 16 bytes, so the
+first image data location will be the length of the header block plus 16 bytes
+for each image directory entry.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">offset</span> <span class="o">=</span> <span class="nx">length</span> <span class="o">+</span> <span class="p">(</span><span class="mi">16</span> <span class="o">*</span> <span class="nx">pngs</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Create an ICO directory entry buffer for each image output size.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">png</span> <span class="k">of</span> <span class="nx">pngs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">dir</span> <span class="o">=</span> <span class="nx">createDirectoryEntry</span><span class="p">(</span><span class="nx">png</span><span class="p">,</span> <span class="nx">offset</span><span class="p">);</span>
+
+  <span class="nx">buffers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">dir</span><span class="p">);</span>
+  <span class="nx">length</span> <span class="o">+=</span> <span class="nx">dir</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Update the image data offset. The next image will start at the point in the file
+further along by the number of bytes in the image for the current directory
+entry. An extra 40 bytes is also needed for the bitmap data block header.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="nx">offset</span> <span class="o">+=</span> <span class="mi">40</span> <span class="o">+</span> <span class="nx">png</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create buffer blocks for the image data bitmaps.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">png</span> <span class="k">of</span> <span class="nx">pngs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">bitmap</span> <span class="o">=</span> <span class="nx">createBitmap</span><span class="p">(</span><span class="nx">png</span><span class="p">);</span>
+
+  <span class="nx">buffers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">bitmap</span><span class="p">);</span>
+  <span class="nx">length</span> <span class="o">+=</span> <span class="nx">bitmap</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And concatenate the ICO file block buffers to get the final ICO file data.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="k">return</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">buffers</span><span class="p">,</span> <span class="nx">length</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

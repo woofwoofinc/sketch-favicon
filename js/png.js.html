@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PNG Handling &#8212; Sketch Favicon</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/woofwoofinc.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ICO Handling" href="ico.js.html" />
+    <link rel="prev" title="User Interfaces" href="ui.js.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Sketch Favicon</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="manifest.json.html">Sketch Favicon Plugin Manifest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="export-favicon.js.html">Writing Sketch Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#using-dependencies">Using Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="export-favicon.js.html#export-favicon-command">Export Favicon Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#validation">Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#convert-selected-layer-to-png">Convert Selected Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export-favicon.js.html#output-favicon-icon-generation">Output Favicon Icon Generation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ui.js.html">User Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-sizes">Output Favicon Icon Sizes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ui.js.html#output-favicon-icon-location">Output Favicon Icon Location</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PNG Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#convert-a-layer-to-png">Convert a Layer to PNG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resize-png">Resize PNG</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ico.js.html">ICO Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ico.js.html#create-an-ico-from-png-data">Create an ICO from PNG Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.js.html">Utility Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#base64-encoding-decoding">Base64 Encoding/Decoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.js.html#temporary-files">Temporary Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev.html">Development Tools Container</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dev.html#building">Building</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../building.html">Building</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releasing.html">Releasing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#release-checklist">Release Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#building-a-release">Building a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#preparing-the-github-release">Preparing the GitHub Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#update-the-appcast-file">Update the Appcast File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing.html#publishing-the-documentation">Publishing the Documentation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conduct.html">Contributor Covenant Code of Conduct</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-pledge">Our Pledge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-standards">Our Standards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#our-responsibilities">Our Responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#scope">Scope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#enforcement">Enforcement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conduct.html#attribution">Attribution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../thanks.html">Thanks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="ui.js.html" title="Previous Chapter: User Interfaces"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; User Interfaces</span>
+    </a>
+  </li>
+  <li>
+    <a href="ico.js.html" title="Next Chapter: ICO Handling"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">ICO Handling &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="png-handling">
+<h1>PNG Handling<a class="headerlink" href="#png-handling" title="Permalink to this headline">¶</a></h1>
+<p>Utilities for generating and handling PNG data.</p>
+<div class="section" id="convert-a-layer-to-png">
+<h2>Convert a Layer to PNG<a class="headerlink" href="#convert-a-layer-to-png" title="Permalink to this headline">¶</a></h2>
+<p>This works by exporting the layer to a PNG file and then rereading the PNG file
+data. Follows <a class="reference external" href="https://github.com/abynim">Aby Nimbalkar</a>’s <a class="reference external" href="https://github.com/abynim/Xport/blob/master/Xport.sketchplugin/Contents/Sketch/common.js">common.js</a> in <a class="reference external" href="https://github.com/abynim/Xport">Xport</a> for the export.</p>
+<p>To export the layer to PNG, first create an MSExportRequest.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">base64DecodeToBuffer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./utils&#39;</span><span class="p">).</span><span class="nx">base64DecodeToBuffer</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">UPNG</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;upng-js&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">utils</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./utils&#39;</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">toPng</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">layer</span><span class="p">)</span> <span class="p">{</span>
+
+  <span class="kr">const</span> <span class="nx">slice</span> <span class="o">=</span> <span class="nx">MSExportRequest</span><span class="p">.</span><span class="nx">alloc</span><span class="p">().</span><span class="nx">init</span><span class="p">();</span>
+
+  <span class="nx">slice</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+  <span class="nx">slice</span><span class="p">.</span><span class="nx">setFormat</span><span class="p">(</span><span class="s1">&#39;png&#39;</span><span class="p">);</span>
+  <span class="nx">slice</span><span class="p">.</span><span class="nx">setShouldTrim</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="nx">slice</span><span class="p">.</span><span class="nx">setSaveForWeb</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use the dimensions of the input layer to set the export rectangle.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bounds</span> <span class="o">=</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">sketchObject</span><span class="p">.</span><span class="nx">absoluteRect</span><span class="p">();</span>
+
+<span class="nx">slice</span><span class="p">.</span><span class="nx">setRect</span><span class="p">(</span><span class="nx">bounds</span><span class="p">.</span><span class="nx">rect</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Scale the image down to 256x256 if it is larger. The favicon bitmaps cannot be
+larger than 256x256 and it will speed up performance of the later steps if we
+scale early.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">scale</span> <span class="o">=</span> <span class="mf">256.0</span> <span class="o">/</span> <span class="nx">bounds</span><span class="p">.</span><span class="nx">width</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">scale</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">slice</span><span class="p">.</span><span class="nx">setScale</span><span class="p">(</span><span class="nx">scale</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And perform the export.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">getTemporaryPath</span><span class="p">(</span><span class="s1">&#39;sketch-&#39;</span><span class="p">,</span> <span class="s1">&#39;.png&#39;</span><span class="p">);</span>
+<span class="nx">context</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">saveArtboardOrSlice_toFile</span><span class="p">(</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To read the PNG file back, we have to access the filesystem on the Cocoa side of
+the bridge which will give us an <code class="docutils literal"><span class="pre">NSData</span></code> object. Working with <code class="docutils literal"><span class="pre">NSData</span></code> is
+difficult. So we move JavaScript side by converting the <code class="docutils literal"><span class="pre">NSData</span></code> to a Base64
+string and traverse the bridge with this string.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">NSData</span><span class="p">.</span><span class="nx">dataWithContentsOfFile</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+<span class="nx">NSFileManager</span><span class="p">.</span><span class="nx">defaultManager</span><span class="p">().</span><span class="nx">removeItemAtPath_error</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once back on the JavaScript side we decode the Base64 data to a Buffer.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">base64</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">base64EncodedStringWithOptions</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>On the JavaScript side of the bridge this is still an MOBoxedObject so coerce it
+to a proper JavaScript string first.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">coerced</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span> <span class="nx">base64</span> <span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then decode and parse the PNG data.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>  <span class="kr">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">base64DecodeToBuffer</span><span class="p">(</span><span class="nx">coerced</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">UPNG</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resize-png">
+<h2>Resize PNG<a class="headerlink" href="#resize-png" title="Permalink to this headline">¶</a></h2>
+<p>Resize the provided PNG data for the sizes to be included in the output ICO
+file. All requested output sizes must be at most 256 pixels.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">resizeImageData</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;resize-image-data&#39;</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">resize</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">sizes</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">sizes</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">size</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</pre></div>
+</div>
+<p>Since the Sketch layer to PNG conversion also scales the PNG to 256x256, we can
+save doing this rescale if requested. This is very advantageous since it
+eliminates the largest/slowest resize size that would be typically be used.
+Resize performance is a problem since it is performed on the JavaScript side of
+the bridge and results in noticeable UI thread freezing.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">size</span> <span class="o">===</span> <span class="nx">data</span><span class="p">.</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">resizeImageData</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="nx">size</span><span class="p">,</span> <span class="s1">&#39;biliniear-interpolation&#39;</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
