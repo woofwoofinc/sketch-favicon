@@ -19,7 +19,7 @@ Build the container using the provided build script:
 
 ::
 
-    ./dev-sketch-favicon.buildah.sh
+    sudo ./dev-sketch-favicon.buildah.sh
 
 This will make a ``dev-sketch-favicon.oci`` in the directory. Convert this to
 ``dev-sketch-favicon.aci`` for installation into rkt:
